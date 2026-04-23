@@ -1,12 +1,21 @@
 class AgentContext < Formula
   desc "Rust-native MCP code search server for Milvus-backed local code intelligence"
   homepage "https://github.com/jeremymefford/agent-context-mcp"
-  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.3/agent-context-darwin-arm64.tar.gz"
-  sha256 "c0d77169ccd7de2f161ef728d6eb88ae3dcc9ba2a477c83ee2473573b2559db5"
+  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.4/agent-context-darwin-arm64.tar.gz"
+  sha256 "0ebd7e4f98721dadb4b67c97355f1b1f591f80967518bfd432c7fd924c763ea0"
   license "GPL-3.0-only"
+  depends_on arch: :arm64
 
   def install
     bin.install "agent-context"
+  end
+
+  service do
+    run [opt_bin/"agent-context", "serve", "--listen", "127.0.0.1:8765"]
+    keep_alive true
+    working_dir var/"agent-context"
+    log_path var/"log/agent-context.log"
+    error_log_path var/"log/agent-context.err.log"
   end
 
   def caveats
@@ -16,6 +25,14 @@ class AgentContext < Formula
         1. a running Milvus instance
         2. a config file, usually created with `agent-context init`
         3. an embedding provider configured via env vars or Ollama
+
+      Preferred local setup:
+
+        brew services start agent-context
+
+      Health check:
+
+        curl http://127.0.0.1:8765/health
 
       See the project README for the macOS quickstart.
     EOS
