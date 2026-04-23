@@ -1,8 +1,8 @@
 class AgentContext < Formula
   desc "Rust-native MCP code search server for Milvus-backed local code intelligence"
   homepage "https://github.com/jeremymefford/agent-context-mcp"
-  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.4/agent-context-darwin-arm64.tar.gz"
-  sha256 "0ebd7e4f98721dadb4b67c97355f1b1f591f80967518bfd432c7fd924c763ea0"
+  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.7/agent-context-darwin-arm64.tar.gz"
+  sha256 "bba1ddfcf13c1fedff45d3bc3f1088c4f46270ddb388153405ef3e09be299a34"
   license "GPL-3.0-only"
   depends_on arch: :arm64
 
@@ -13,7 +13,7 @@ class AgentContext < Formula
   service do
     run [opt_bin/"agent-context", "serve", "--listen", "127.0.0.1:8765"]
     keep_alive true
-    working_dir var/"agent-context"
+    working_dir var
     log_path var/"log/agent-context.log"
     error_log_path var/"log/agent-context.err.log"
   end
