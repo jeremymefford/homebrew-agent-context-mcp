@@ -1,9 +1,9 @@
 class AgentContext < Formula
   desc "Rust-native MCP code search server for Milvus-backed local code intelligence"
   homepage "https://github.com/jeremymefford/agent-context-mcp"
-  version "0.1.9"
-  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.9/agent-context-darwin-arm64.tar.gz"
-  sha256 "392572fe3eebbe5e74c1e2726add07381280c8e95ce399e43c08decb0df29b4b"
+  version "0.1.10"
+  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.10/agent-context-darwin-arm64.tar.gz"
+  sha256 "31ce0c054c93474dff15578348cf121033125afe1ca1eb32a9ec01df200388fe"
   license "GPL-3.0-only"
   depends_on arch: :arm64
 
@@ -32,7 +32,13 @@ class AgentContext < Formula
 
         1. a running Milvus instance
         2. a config file at ~/Library/Application Support/agent-context/config.toml
-        3. an embedding provider configured via env vars or Ollama
+        3. an embedding provider configured for the Homebrew service
+
+      Provider notes:
+
+        - Voyage: prefer embedding.voyage.key_file in config
+        - OpenAI: prefer embedding.openai.key_file in config
+        - Ollama: no key required, but the Ollama server must be running
 
       Preferred local setup:
 
