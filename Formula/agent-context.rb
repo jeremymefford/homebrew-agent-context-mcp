@@ -1,9 +1,9 @@
 class AgentContext < Formula
   desc "Rust-native MCP code search server for Milvus-backed local code intelligence"
   homepage "https://github.com/jeremymefford/agent-context-mcp"
-  version "0.1.23"
-  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.23/agent-context-darwin-arm64.tar.gz"
-  sha256 "e8c4a5b90ef58292caed6a6ea0cd352671e45c54f57d41abb4660d91cc09bc6a"
+  version "0.1.24"
+  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.24/agent-context-darwin-arm64.tar.gz"
+  sha256 "203be316b463fc660137cb26a984d578eb35ffae4029bd6d7e8271c76ecd5ed2"
   license "GPL-3.0-only"
   depends_on arch: :arm64
 
@@ -36,8 +36,8 @@ class AgentContext < Formula
 
       Provider notes:
 
-        - Voyage: prefer embedding.voyage.key_file in config
-        - OpenAI: prefer embedding.openai.key_file in config
+        - Voyage: prefer embedding.profiles.<name>.voyage.key_file in config
+        - OpenAI: prefer embedding.profiles.<name>.openai.key_file in config
         - Ollama: no key required, but the Ollama server must be running
 
       Preferred local setup:
