@@ -1,9 +1,9 @@
 class AgentContext < Formula
   desc "Rust-native MCP code search server for Milvus-backed local code intelligence"
   homepage "https://github.com/jeremymefford/agent-context-mcp"
-  version "0.1.29"
-  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.29/agent-context-darwin-arm64.tar.gz"
-  sha256 "af20256dcd71145c56a75face16b34cfa384f6903e627423fec986b0fa532c3a"
+  version "0.1.30"
+  url "https://github.com/jeremymefford/agent-context-mcp/releases/download/v0.1.30/agent-context-darwin-arm64.tar.gz"
+  sha256 "c34ce5d31af24e0af492bc0dbf67823059ba054df55854a1313bf8de4f8cef5a"
   license "GPL-3.0-only"
   depends_on arch: :arm64
 
